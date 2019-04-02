@@ -3,11 +3,8 @@
   "version": "1.0.2",
   "description": "Script to clone and install repo to specified directory",
   "main": "index.js",
-  "scripts": {
-    "create-app": "node ./index.js"
-  },
   "bin": {
-    "create-redux-app": "./bin/index.js"
+    "create-redux-app": "./index.js"
   },
   "author": "Liam Hanrahan",
   "license": "ISC",
