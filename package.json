@@ -7,7 +7,7 @@
     "create-app": "node ./index.js"
   },
   "bin": {
-    "create-redux-app": "./index.js"
+    "create-redux-app": "./bin/index.js"
   },
   "author": "Liam Hanrahan",
   "license": "ISC",
