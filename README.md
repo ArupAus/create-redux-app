@@ -1,8 +1,10 @@
 # Create Redux App
 
+Uses ArupAus/react-app-template to create a template redux application
+
 ## INSTALL
 
-npm install -g git@github.com:ArupAus/react-app-template.git
+`npm install -g git@github.com:ArupAus/react-app-template.git`
 
 ## RUN
 

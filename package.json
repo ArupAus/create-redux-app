@@ -1,5 +1,5 @@
 {
-  "name": "react-app-template",
+  "name": "create-redux-app",
   "version": "1.0.2",
   "description": "Script to clone and install repo to specified directory",
   "main": "index.js",
