@@ -1,3 +1,5 @@
+'use strict'
+
 const chalk = require('chalk')
 const commander = require('commander')
 const envinfo = require('envinfo')
