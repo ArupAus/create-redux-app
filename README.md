@@ -4,7 +4,7 @@ Uses ArupAus/react-app-template to create a template redux application
 
 ## INSTALL
 
-`npm install -g git@github.com:ArupAus/react-app-template.git`
+`npm install -g git+ssh://git@github.com/ArupAus/create-redux-app.git`
 
 ## RUN
 
