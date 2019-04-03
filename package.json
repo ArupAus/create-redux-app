@@ -1,6 +1,6 @@
 {
   "name": "create-redux-app",
-  "version": "1.0.2",
+  "version": "0.0.1",
   "description": "Script to clone and install repo to specified directory",
   "main": "index.js",
   "bin": {

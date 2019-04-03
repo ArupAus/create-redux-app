@@ -14,78 +14,19 @@ const program = new commander.Command(packageJson.name)
   .action(name => {
     projectName = name
   })
-  .option('--verbose', 'print additional logs')
-  .option('--info', 'print environment debug info')
-  .option(
-    '--scripts-version <alternative-package>',
-    'use a non-standard version of react-scripts'
-  )
-  .option('--use-npm')
-  .option('--use-pnp')
-  .option('--typescript')
   .allowUnknownOption()
   .on('--help', () => {
     console.log(`    Only ${chalk.green('<project-directory>')} is required.`)
     console.log()
     console.log(
-      `    A custom ${chalk.cyan('--scripts-version')} can be one of:`
-    )
-    console.log(`      - a specific npm version: ${chalk.green('0.8.2')}`)
-    console.log(`      - a specific npm tag: ${chalk.green('@next')}`)
-    console.log(
-      `      - a custom fork published on npm: ${chalk.green(
-        'my-react-scripts'
-      )}`
+      `    If you have any suggestions or issues using this tool please let them be known here:`
     )
     console.log(
-      `      - a local path relative to the current working directory: ${chalk.green(
-        'file:../my-react-scripts'
-      )}`
-    )
-    console.log(
-      `      - a .tgz archive: ${chalk.green(
-        'https://mysite.com/my-react-scripts-0.8.2.tgz'
-      )}`
-    )
-    console.log(
-      `      - a .tar.gz archive: ${chalk.green(
-        'https://mysite.com/my-react-scripts-0.8.2.tar.gz'
-      )}`
-    )
-    console.log(
-      `    It is not needed unless you specifically want to use a fork.`
-    )
-    console.log()
-    console.log(
-      `    If you have any problems, do not hesitate to file an issue:`
-    )
-    console.log(
-      `      ${chalk.cyan(
-        'https://github.com/facebook/create-react-app/issues/new'
-      )}`
+      `      ${chalk.cyan('https://github.com/create-redux-app/issues/new')}`
     )
     console.log()
   })
   .parse(process.argv)
-
-if (program.info) {
-  console.log(chalk.bold('\nEnvironment Info:'))
-  return envinfo
-    .run(
-      {
-        System: ['OS', 'CPU'],
-        Binaries: ['Node', 'npm', 'Yarn'],
-        Browsers: ['Chrome', 'Edge', 'Internet Explorer', 'Firefox', 'Safari'],
-        npmPackages: ['react', 'react-dom', 'react-scripts'],
-        npmGlobalPackages: ['create-react-app'],
-      },
-      {
-        duplicates: true,
-        showNotFound: true,
-      }
-    )
-    .then(console.log)
-}
 
 if (typeof projectName === 'undefined') {
   console.error('Please specify the project directory:')
@@ -94,7 +35,7 @@ if (typeof projectName === 'undefined') {
   )
   console.log()
   console.log('For example:')
-  console.log(`  ${chalk.cyan(program.name())} ${chalk.green('my-react-app')}`)
+  console.log(`  ${chalk.cyan(program.name())} ${chalk.green('my-redux-app')}`)
   console.log()
   console.log(
     `Run ${chalk.cyan(`${program.name()} --help`)} to see all options.`
@@ -110,7 +51,17 @@ function clone() {
     ['clone', 'https://github.com/ArupAus/react-app-template.git', projectName],
     { stdio: 'inherit' }
   )
-  console.log('cloned: ', result)
+
+  if (result.status === 0) {
+    // SUCCESS
+    console.log(chalk.green(`Template successfully cloned to /${projectName}.`))
+  } else {
+    // FAILURE
+    console.error(
+      chalk.red('Error something went wrong during cloning. '),
+      result.error
+    )
+  }
 
   install()
 }
@@ -118,5 +69,27 @@ function clone() {
 function install() {
   process.chdir(projectName)
   const result = spawn.sync('npm', ['install'], { stdio: 'inherit' })
-  console.log('installed: ', result)
+
+  if (result.status === 0) {
+    // SUCCESS
+    console.log(
+      chalk.green('Packages successfully installed for template app.')
+    )
+  } else {
+    // FAILURE
+    console.error(
+      chalk.red('Error something went wrong during package installation. '),
+      result.error
+    )
+  }
+
+  complete()
+}
+
+function complete() {
+  console.log(
+    chalk.green(
+      `Redux app has been created.\r\nYou can now access your new application with command \`cd ${projectName}\`.\r\nTo see your application in action, run the command \`npm run dev\`.`
+    )
+  )
 }
