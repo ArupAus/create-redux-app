@@ -1,21 +1,22 @@
-# Create Redux App
+# CREATE REDUX APP
 
-Uses ArupAus/react-app-template to create a template redux application
+Uses (ArupAus/React-App-Template)[https://github.com/ArupAus/react-app-template] to create a template redux application
 
-## INSTALL
+## REQUIREMENTS
+
+You will need to have a valid SSH key for the ArupAus organisation to properly install/run the node commands. (Click here to learn more.)[https://help.github.com/en/articles/connecting-to-github-with-ssh]
+
+## RUN (WITHOUT INSTALL)
+
+If you prefer to not install the package globally you can instead run the single line command  
+`npx git+ssh://git@github.com/ArupAus/create-redux-app.git <project-name>`  
+Where `<project-name>` is the name of the project you want to create
+
+## INSTALL & RUN
 
 `npm install -g git+ssh://git@github.com/ArupAus/create-redux-app.git`
 
-## RUN
-
-In the command line run the command  
-`create-redux-app <project-name>`  
-Where `<project-name>` is the name of the project you want to create
-
-OR
-
-If you prefer to not install the package globally you can instead run the single line command  
-`npx git+ssh://git@github.com/ArupAus/create-redux-app.git <project-name>`
+`create-redux-app <project-name>`
 
 ## DEV
 
