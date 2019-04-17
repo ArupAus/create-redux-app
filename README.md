@@ -1,6 +1,6 @@
 # Create Redux App
 
-Uses [ArupAus/React-App-Template](https://github.com/ArupAus/react-app-template) to create a template redux application
+Uses [ArupAus/Redux-App-Template](https://github.com/ArupAus/redux-app-template) to create a template redux application
 
 ## Requirements
 
